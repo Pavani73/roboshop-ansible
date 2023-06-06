@@ -7,30 +7,30 @@
         name: nginx
         state: latest
 
-    -  name: REMOVING OLD APP CONTENT
-       ansible.builtin.file:
+    - name: REMOVING OLD APP CONTENT
+      ansible.builtin.file:
        path: /usr/share/nginx/html
        state: absent
 
 
-    -  name: EXTRACT FRONTEND CONTENT
-       ansible.builtin.file:
+    - name: EXTRACT FRONTEND CONTENT
+      ansible.builtin.file:
         path: usr/share/nginx/html
         state: directory
 
-    -  name: DOWNLOAD AND EXTRACT FRONTEND CONTENT
-       ansible.builtin.unarchive:
+    - name: DOWNLOAD AND EXTRACT FRONTEND CONTENT
+      ansible.builtin.unarchive:
           src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
           dest: /usr/share/nginx/html
           remote_src: yes
 
-    -  name: Copy roboshop configuratiom
-       ansible.builtin.copy:
+    - name: Copy roboshop configuratiom
+      ansible.builtin.copy:
           src: roboshop.conf
           dest: /etc/nginx/default.d/roboshop.conf
 
-    -  name: STARTING NGINX SERVER
-       ansible.builtin.systemd:
+    - name: STARTING NGINX SERVER
+      ansible.builtin.systemd:
           state: restarted
           name: nginx
           enabled: true
