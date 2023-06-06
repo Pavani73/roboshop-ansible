@@ -1,21 +1,21 @@
-- name: INSTALLING NGINX SERVER
+- name: setup frontend
   hosts: all
   become: yes
   tasks:
-    - name: Install the latest version of Apache
+    - name: IINSTALLING NGINX SERVER
       ansible.builtin.yum:
         name: nginx
         state: latest
 
-    - name: REMOVING OLD APP CONTENT
+    - name: Remove directory
       ansible.builtin.file:
        path: /usr/share/nginx/html
        state: absent
 
 
-    - name: EXTRACT FRONTEND CONTENT
+    - name: create directory
       ansible.builtin.file:
-        path: usr/share/nginx/html
+        path: /usr/share/nginx/html
         state: directory
 
     - name: DOWNLOAD AND EXTRACT FRONTEND CONTENT
