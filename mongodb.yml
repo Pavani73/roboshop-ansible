@@ -22,5 +22,5 @@ tasks:
   - name: START mongodb service
     ansible.builtin.systemd:
       state: restarted
-      name: mongodb
+      name: mongod
       enabled: true
