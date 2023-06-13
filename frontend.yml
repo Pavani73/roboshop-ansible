@@ -2,7 +2,7 @@
   hosts: all
   become: yes
   tasks:
-    - name: IINSTALLING NGINX SERVER
+    - name: INSTALLING NGINX SERVER
       ansible.builtin.yum:
         name: nginx
         state: latest
