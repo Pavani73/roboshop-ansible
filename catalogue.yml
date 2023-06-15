@@ -1,9 +1,0 @@
-- name: Setup Catalogue component
-  hosts: all
-  becomes: yes
-  vars:
-    component:catalogue
-  tasks:
-    - name: load NodeJS
-      ansible.builtin.include_tasks:
-        file: nodejs.yml
