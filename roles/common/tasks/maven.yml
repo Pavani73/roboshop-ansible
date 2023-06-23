@@ -1,0 +1,14 @@
+- name: install Maven
+  ansible.builtin.yum:
+   name: maven
+   state: installed
+
+- name: App pre-requisites
+  ansible.builtin.import_tasks:
+  file: app_presetup.yml
+
+- name: download Maven Dependencies
+  ansible.builtin.shell: mvn clean package; mvn target/{{ component }} -1.0.jar {{ component }}.jar
+
+  args:
+    chdir: /app
