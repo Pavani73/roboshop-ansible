@@ -5,5 +5,5 @@
 
 - name: load schema setup
   ansible.builtin.import_role:
-    name: common
-    tasks_from: mongo_schema_setup
+     name: common
+     tasks_from: mongo_schema_setup
