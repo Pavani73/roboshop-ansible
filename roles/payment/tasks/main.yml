@@ -1,0 +1,4 @@
+- name: load python
+  ansible.builtin.import_role:
+    name: common
+    state: installed
