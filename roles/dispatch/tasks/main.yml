@@ -1,0 +1,4 @@
+- name: install golang
+  ansible.builtin.import_role:
+    name: common
+    state: golang
