@@ -5,6 +5,6 @@
     state: installed
 
 - name: load schema
-  ansible.builtin.shell: mysql -h mysql-dev.pavani73.store -uroot -pRoboshop@1 </app/schema/{{ component}}.js
+  ansible.builtin.shell: mysql -h mysql-dev.pavani73.store -uroot -pRoboshop@1 </app/schema/{{ component}}.sql
 
 
