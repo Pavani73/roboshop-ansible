@@ -10,9 +10,8 @@
   args:
     chdir: /app
 
-- name: MySql schema setup
-  ansible.builtin.import_tasks:
-    file: mysql_schema_setup.yml
+- name: install golang dependencies
+  ansible.builtin.shell: go mod init dispatch;  go get; go build
 
 - name: SystemD Setup
   ansible.builtin.import_tasks:
