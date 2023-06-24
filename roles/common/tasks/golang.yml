@@ -1,0 +1,19 @@
+- name: install goloang
+  ansible.builtin.yum:
+    name: golang
+    state: installed
+
+- name: App pre-requisites
+  ansible.builtin.import_tasks:
+  file: app_presetup.yml
+
+  args:
+    chdir: /app
+
+- name: MySql schema setup
+  ansible.builtin.import_tasks:
+    file: mysql_schema_setup.yml
+
+- name: SystemD Setup
+  ansible.builtin.import_tasks:
+    file: systemd_setup.yml
