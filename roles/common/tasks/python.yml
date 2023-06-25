@@ -9,12 +9,12 @@
 
 - name: App pre-requisites
   ansible.builtin.import_tasks:
-    file: app_presetup.yml
+   file: app_presetup.yml
 
 - name: install python dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
   args:
-     chdir: /app
+   chdir: /app
 
 - name: SystemD setup
   ansible.builtin.import_tasks:
