@@ -5,7 +5,7 @@
 
 - name: Install mongodb
   ansible.builtin.yum:
-    path: mongodb-org
+    path: mongodb-org-shell
     state: latest
 
 
