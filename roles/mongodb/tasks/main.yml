@@ -5,18 +5,18 @@
 
 - name: Install mongodb
   ansible.builtin.yum:
-    path: mongodb-org-shell
+    path: mongodb-org
     state: latest
 
 
 - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
   ansible.builtin.replace:
-    path: /etc/mongodb.conf
+    path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
 - name: START mongodb service
   ansible.builtin.systemd:
     state: restarted
-    name: mongodb
+    name: mongod
     enabled: true
