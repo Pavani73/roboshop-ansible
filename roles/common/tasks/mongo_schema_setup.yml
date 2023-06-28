@@ -5,8 +5,8 @@
 
 - name: Install Mongodb Client
   ansible.built.yum:
-      name: mongodb-org-shell
-      state: installed
+    name: mongodb-org-shell
+    state: installed
 
 - name: load schema
   ansible.builtin.shell:  mongo --host mongodb-dev.pavani73.store </app/schema/catalogue.js
